@@ -1,13 +1,12 @@
 
-var express = require('express');
-var app = express();
+var express = require('express'),
+    app = express(),
+    favicon = require('serve-favicon'),
+    bodyParser = require('body-parser'),
+    methodOverride = require('method-override');
 
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
 
-
-
-// testing nodemon
+// trying nodemon
 var nodemon = require('nodemon');
 
 nodemon.on('start', function () {
@@ -18,8 +17,25 @@ nodemon.on('start', function () {
   console.log('App restarted due to: ', files);
 });
 
+
+//model controllers rather than routes
+var application_controller = require('./controllers/application_controller');
+var tasks = require('./controllers/tasks');//need to make this file
+
+
+
+//********Express Settings
+
 // Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static(process.cwd() + '/public'));
+//Do I Need this anymore????******************************
+// app.use(express.static(process.cwd() + '/public'));
+
+app.use('/', application_controller);
+app.use('/tasks', tasks);
+
+
+//trying serve-favicon
+app.use(favicon(__dirname + './public/favicon.ico'));
 
 app.use(bodyParser.urlencoded({
 	extended: false
@@ -35,8 +51,9 @@ app.engine('handlebars', exphbs({
 // use handlebars as a template maker
 app.set('view engine', 'handlebars');
 
-var routes = require('./controllers/todo_controller.js');
-app.use('/', routes);
+// these two lines of code were replaced by my model contollers
+// var routes = require('./controllers/todo_controller.js');
+// app.use('/', routes);
 
 // listening on port 3000
 var PORT = 3000;
