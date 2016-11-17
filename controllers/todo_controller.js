@@ -1,3 +1,6 @@
+//This is the old file, not necessary anymore **only here so I can rewrite the queries in sequelize**
+
+
 /*
 Here is where you create all the functions that will do the routing for your app, and the logic of each route.
 */

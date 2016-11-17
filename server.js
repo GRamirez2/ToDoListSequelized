@@ -20,7 +20,7 @@ nodemon.on('start', function () {
 
 //model controllers rather than routes
 var application_controller = require('./controllers/application_controller');
-var tasks = require('./controllers/tasks');//need to make this file
+var tasks = require('./controllers/tasks_controller');//this file may have errors
 
 
 
@@ -55,6 +55,12 @@ app.set('view engine', 'handlebars');
 // var routes = require('./controllers/todo_controller.js');
 // app.use('/', routes);
 
-// listening on port 3000
-var PORT = 3000;
-app.listen(process.env.PORT || PORT);
+// listening on port 3000 OR process.env.PORT
+app.set('port', process.env.PORT || 3000);
+
+models.sequelize.sync().then(function(){
+  app.listen(app.get('port'),function(){
+    console.log('listening on port ' + this.address().port);
+  });
+});
+
