@@ -28,8 +28,8 @@ var tasks = require('./controllers/tasks_controller');//this file may have error
 //********Express Settings
 
 // Serve static content for the app from the "public" directory in the application directory.
-//Do I Need this anymore????******************************
-// app.use(express.static(process.cwd() + '/public'));
+//Do I Need this anymore???? YES DO ******************************
+app.use(express.static(process.cwd() + '/public'));
 
 app.use('/', application_controller);
 app.use('/tasks', tasks);
