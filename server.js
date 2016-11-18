@@ -3,7 +3,8 @@ var express = require('express'),
     app = express(),
     favicon = require('serve-favicon'),
     bodyParser = require('body-parser'),
-    methodOverride = require('method-override');
+    methodOverride = require('method-override'),
+    models = require('./models');
 
 
 // trying nodemon
@@ -19,7 +20,7 @@ nodemon.on('start', function () {
 
 
 //model controllers rather than routes
-var application_controller = require('./controllers/application_controller');
+var application_controller = require('./controllers/applicatioin_controller');
 var tasks = require('./controllers/tasks_controller');//this file may have errors
 
 
@@ -35,7 +36,7 @@ app.use('/tasks', tasks);
 
 
 //trying serve-favicon
-app.use(favicon(__dirname + './public/favicon.ico'));
+// app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.use(bodyParser.urlencoded({
 	extended: false

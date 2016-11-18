@@ -4,9 +4,9 @@
 /*
 Here is where you create all the functions that will do the routing for your app, and the logic of each route.
 */
-var express = require('express');
-var router = express.Router();
-var todo = require('../models/todo.js');
+// var express = require('express');
+// var router = express.Router();
+// var todo = require('../models/todo.js');
 
 router.get('/', function (req, res) {
 	res.redirect('/todo');
@@ -47,4 +47,4 @@ router.delete('/todo/delete/:id', function (req, res) {
 	});
 });
 
-module.exports = router;
+//module.exports = router;
