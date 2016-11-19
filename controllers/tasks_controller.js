@@ -16,7 +16,7 @@ router.get('/', function(req, res){
 
 // POST
 
-router.post('/create', function (req, res){
+router.post('/tasks/create', function (req, res){
 console.log("this should work"+req.body.name);
     models.Tasks.create({
         name: req.body.name,

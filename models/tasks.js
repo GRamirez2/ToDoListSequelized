@@ -12,6 +12,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TIME
     }
   }, {
+    // freezeTableName: true,
+
+    // // define the table's name
+    // tableName: 'Tasks',
     classMethods: {
       associate: function(models) {
         // associations can be defined here
