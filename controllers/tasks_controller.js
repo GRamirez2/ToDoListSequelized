@@ -9,7 +9,7 @@ router.get('/', function(req, res){
       //this is where I will use the include method to grap data from another table
       //in the meantime, does this stay blank?
     }).then(function(tasks){
-        var entireList = {todo:tasks};//**I'm not sure what this should be named, what is handlebars expecting????
+        var entireList = {todo:tasks};//**I'm not sure what this should be named, what is handlebars expecting? but I got it correct
         res.render('index', entireList);
     });
 });
@@ -17,7 +17,7 @@ router.get('/', function(req, res){
 // POST
 
 router.post('/create', function (req, res){
-
+console.log("this should work"+req.body.name);
     models.Tasks.create({
         name: req.body.name,
         complete: req.body.complete
