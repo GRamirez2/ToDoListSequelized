@@ -3,8 +3,12 @@ var express = require('express');
 var router = express.Router();
 
 
-// GET
 router.get('/', function(req, res){
+    res.redirect('/tasks');
+})
+
+// GET
+router.get('/tasks', function(req, res){
 
     models.Tasks.findAll({
       //this is where I will use the include method to grap data from another table
@@ -17,8 +21,8 @@ router.get('/', function(req, res){
 
 // POST
 
-router.post('/create', function (req, res){
-console.log("req.body" + req.body);
+router.post('/tasks/create', function (req, res){
+console.log("req.body" + req.body.newtask);
     models.Tasks.create({
         name: req.body.newtask,
         complete: req.body.complete
@@ -27,10 +31,8 @@ console.log("req.body" + req.body);
     });
 });
 
-
 // PUT
-
-router.put('/update/:id', function(req, res){
+router.put('/tasks/update/:id', function(req, res){
     models.Tasks.update(
         {
             complete:req.body.complete
@@ -45,7 +47,7 @@ router.put('/update/:id', function(req, res){
 });
 
 // DELETE
-router.delete('/delete/:id', function(req,res){
+router.delete('/tasks/delete/:id', function(req,res){
     models.Tasks.destroy(
         {
             where:{id:req.params.id}

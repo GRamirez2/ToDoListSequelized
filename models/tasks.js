@@ -1,4 +1,7 @@
 'use strict';
+
+var Sequelize = require('sequelize');
+
 module.exports = function(sequelize, DataTypes) {
   var Tasks = sequelize.define('Tasks', {
     name: {

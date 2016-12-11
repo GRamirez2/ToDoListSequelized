@@ -1,7 +1,7 @@
 <div class = "wrapper">  
   <div class = "topbox">
     <h2><center>when you're good at forgetting</center></h2>
-    <form class="create-update-form" action="/tasks/create" method="POST">
+    <form class="create-update-form" action="tasks/create" method="POST">
       <label class="textfield">
         <input type="text" id="newtask" name="newtask"/>
         <span class="textfield_label">New Task</span>
@@ -22,7 +22,7 @@
     </form>
 
   </div>
-    <section class="grid">
+    <section class="grid"> 
       <div>
         <h4>TO DO</h4>
 
@@ -35,9 +35,6 @@
                   <input type="hidden" name="complete" value="true">
                   <button class="f-left" type="submit">Completed</button><br>
                 </form>
-
-               
-                
               </li>
             {{/unless}}
           {{/each}}

@@ -4,12 +4,10 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
-    path = require('path'),
-    models = require('./models');
-
-
-// trying nodemon
-var nodemon = require('nodemon');
+    // path = require('path'),
+    models = require('./models'),
+    nodemon = require('nodemon'),
+    logger = require('morgan');
 
 nodemon.on('start', function () {
   console.log('Tasks App has started');
@@ -19,36 +17,26 @@ nodemon.on('start', function () {
   console.log('App restarted due to: ', files);
 });
 
-
-//model controllers rather than routes
-var application_controller = require('./controllers/applicatioin_controller');
-var tasks = require('./controllers/tasks_controller');//this file may have errors
-
-
-
-//********Express Settings
-
-// Serve static content for the app from the "public" directory in the application directory.
-//Do I Need this anymore???? YES I DO 
-app.use(express.static(process.cwd() + '/public'));
-
-app.use('/', application_controller);
-app.use('/tasks', tasks);
-
-
-
-
-//trying serve-favicon
-app.use(favicon(__dirname + '/public/favicon.ico')); 
-
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 
 // override with POST having ?_method=DELETE and ?_method=PUT
 app.use(methodOverride('_method'));
 
+// Serve static content for the app from the "public" directory in the application directory. 
+app.use(express.static(process.cwd() + '/public'));
+
+// var application_controller = require('./controllers/applicatioin_controller');
+var routes = require('./controllers/tasks_controller.js');
+
+// app.use('/', application_controller);
+app.use('/', routes);
+
+//trying serve-favicon
+app.use(favicon(__dirname + '/public/favicon.ico')); 
+
 var exphbs = require('express-handlebars');
+
 app.engine('handlebars', exphbs({
 	defaultLayout: 'main'
 }));

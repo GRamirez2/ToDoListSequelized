@@ -27,6 +27,7 @@
     "serve-favicon": "^2.3.2"
   },
   "devDependencies": {
+    "morgan": "^1.7.0",
     "sequelize-cli": "^2.4.0"
   }
 }
