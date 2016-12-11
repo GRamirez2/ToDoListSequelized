@@ -1,7 +1,6 @@
 
 var express = require('express'),
     app = express(),
-    favicon = require('serve-favicon'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
     path = require('path'),
@@ -32,8 +31,7 @@ var routes = require('./controllers/tasks_controller.js');
 // app.use('/', application_controller);
 app.use('/', routes);
 
-//trying serve-favicon
-app.use(favicon(__dirname + '/public/assets/img/favicon.ico')); 
+ 
 
 var exphbs = require('express-handlebars');
 
