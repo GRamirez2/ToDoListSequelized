@@ -33,7 +33,7 @@ var routes = require('./controllers/tasks_controller.js');
 app.use('/', routes);
 
 //trying serve-favicon
-app.use(favicon(__dirname + '/public/favicon.ico')); 
+app.use(favicon(__dirname + '/public/assets/img/favicon.ico')); 
 
 var exphbs = require('express-handlebars');
 
