@@ -4,9 +4,8 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
     path = require('path'),
-    models = require('./models'),
-    // nodemon = require('nodemon'),
-    logger = require('morgan');
+    models = require('./models');
+    
 
 // nodemon.on('start', function () {
 //   console.log('Tasks App has started');
