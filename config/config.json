@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "todo_db",
-    "host": "127.0.0.1",
+    "username": "mlgqal4hv63l3mmt",
+    "password": usqb1s4whyespu0t,
+    "database": "r2tqOwcl4mk9vqnz",
+    "host": "o61qijqeuqnj9chh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
