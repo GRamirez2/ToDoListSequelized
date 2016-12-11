@@ -5,16 +5,16 @@ var express = require('express'),
     methodOverride = require('method-override'),
     path = require('path'),
     models = require('./models'),
-    nodemon = require('nodemon'),
+    // nodemon = require('nodemon'),
     logger = require('morgan');
 
-nodemon.on('start', function () {
-  console.log('Tasks App has started');
-}).on('quit', function () {
-  console.log('App has quit');
-}).on('restart', function (files) {
-  console.log('App restarted due to: ', files);
-});
+// nodemon.on('start', function () {
+//   console.log('Tasks App has started');
+// }).on('quit', function () {
+//   console.log('App has quit');
+// }).on('restart', function (files) {
+//   console.log('App restarted due to: ', files);
+// });
 
 // app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
