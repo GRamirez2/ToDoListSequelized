@@ -2,6 +2,7 @@ var models = require('../models');
 var express = require('express');
 var router = express.Router();
 
+
 // GET
 router.get('/', function(req, res){
 
@@ -16,10 +17,10 @@ router.get('/', function(req, res){
 
 // POST
 
-router.post('/tasks/create', function (req, res){
-console.log("this should work"+req.body.name);
+router.post('/create', function (req, res){
+console.log("req.body" + req.body);
     models.Tasks.create({
-        name: req.body.name,
+        name: req.body.newtask,
         complete: req.body.complete
     }).then(function(){
         res.redirect('/');

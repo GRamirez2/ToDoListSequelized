@@ -1,9 +1,9 @@
 <div class = "wrapper">  
   <div class = "topbox">
     <h2><center>when you're good at forgetting</center></h2>
-    <form class="create-update-form" action="tasks/create" method="POST">
+    <form class="create-update-form" action="/tasks/create" method="POST">
       <label class="textfield">
-        <input type="text" id="ca" name="name"/>
+        <input type="text" id="newtask" name="newtask"/>
         <span class="textfield_label">New Task</span>
       </label>
 
@@ -17,7 +17,7 @@
         <span class="radio__label">Completed</span>
       </label>
       
-      <button class="f-right" type="submit2">Add Task</button>
+      <button class="f-right" id="greenbtn" type="submit">Add Task</button>
       <br/>
     </form>
 
@@ -31,7 +31,7 @@
             {{#unless this.complete}}
               <li>
                 {{this.name}}
-                <form class="adjust" action="tasks/update/{{this.id}}?_method=PUT" method="POST">
+                <form class="adjust" action="/tasks/update/{{this.id}}?_method=PUT" method="POST">
                   <input type="hidden" name="complete" value="true">
                   <button class="f-left" type="submit">Completed</button><br>
                 </form>
@@ -53,7 +53,7 @@
               <li>
                 {{this.name}}
 
-                <form class="adjust" action="tasks/update/{{this.id}}?_method=PUT" method="POST">
+                <form class="adjust" action="/tasks/update/{{this.id}}?_method=PUT" method="POST">
                   <input type="hidden" name="complete" value="false">
                   <button type="submit">Not Complete</button> 
                 </form>{{> tasks/delete-todo}}

@@ -12,7 +12,7 @@ var express = require('express'),
 var nodemon = require('nodemon');
 
 nodemon.on('start', function () {
-  console.log('ToDo App has started');
+  console.log('Tasks App has started');
 }).on('quit', function () {
   console.log('App has quit');
 }).on('restart', function (files) {
@@ -36,6 +36,8 @@ app.use('/', application_controller);
 app.use('/tasks', tasks);
 
 
+
+
 //trying serve-favicon
 app.use(favicon(__dirname + '/public/favicon.ico')); 
 
@@ -43,7 +45,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-// override with POST having ?_method=DELETE
+// override with POST having ?_method=DELETE and ?_method=PUT
 app.use(methodOverride('_method'));
 
 var exphbs = require('express-handlebars');
@@ -60,6 +62,8 @@ app.set('view engine', 'handlebars');
 
 // listening on port 3000 OR process.env.PORT
 app.set('port', process.env.PORT || 3000);
+
+
 
 models.sequelize.sync().then(function(){
   app.listen(app.get('port'),function(){
